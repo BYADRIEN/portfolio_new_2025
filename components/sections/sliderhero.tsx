@@ -1,23 +1,20 @@
 'use client';
 import { Typewriter } from 'react-simple-typewriter';
-import { Roboto_Mono } from 'next/font/google';
 
-// Import Google Font
-const robotoMono = Roboto_Mono({ subsets: ['latin'], weight: '400' });
-
-export default function SliderHero() {
+export default function Hero() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-[#0a0f1f] via-[#1a1f3f] to-[#0a0f1f] text-white text-center p-4 sm:p-8">
-      
-      {/* Hero Title */}
-      <h1 className={`${robotoMono.className} text-4xl sm:text-5xl md:text-6xl font-bold mb-6`}>
+    <section
+      id="home"
+      className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-[#1d5f4c] via-[#2ca678] to-[#1a3f2c] text-white"
+    >
+      <h1 className="text-5xl sm:text-6xl font-bold mb-6">
         <Typewriter
           words={[
             'Hello, je suis Adrien 👋',
             'Développeur Web Full Stack 💻',
             'Passionné par le code et le design ✨'
           ]}
-          loop={true}
+          loop
           cursor
           cursorStyle="|"
           typeSpeed={80}
@@ -25,14 +22,17 @@ export default function SliderHero() {
           delaySpeed={2000}
         />
       </h1>
-
-      {/* Underline / accent animé */}
-      <div className="h-1 w-28 bg-cyan-500 mt-4 animate-pulse rounded-full"></div>
-
-      {/* Subtitle */}
-      <p className="text-base sm:text-lg md:text-xl opacity-90 mt-6 max-w-xl">
+      <p className="text-xl sm:text-2xl max-w-xl opacity-90 mb-8">
         Je transforme vos idées en projets concrets 🚀
       </p>
-    </div>
+      <div className="flex gap-6">
+        <a
+          href="#projects"
+          className="px-6 py-3 bg-[#ff8c66] text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition-transform"
+        >
+          Voir mes projets
+        </a>
+      </div>
+    </section>
   );
 }

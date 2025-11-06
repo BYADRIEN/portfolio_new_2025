@@ -1,36 +1,71 @@
+'use client';
+import Link from 'next/link';
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-[#0C0C12] text-white py-10 border-t border-white/10">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    <footer className="bg-[#1d5f4c] text-white py-16 shadow-md">
+      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Logo / Nom */}
+        <div className="text-3xl font-bold">
+          Adrien Selle
+        </div>
 
-        {/* Logo ou nom */}
-        <h3 className="text-xl font-semibold">Adrien Selle — Developer</h3>
-
-        {/* Liens */}
-        <nav className="flex gap-6 text-sm opacity-80">
-          <a href="#about" className="hover:text-purple-400 transition">À propos</a>
-          <a href="#projects" className="hover:text-purple-400 transition">Projets</a>
-          <a href="#contact" className="hover:text-purple-400 transition">Contact</a>
+        {/* Liens de navigation */}
+        <nav>
+          <ul className="flex gap-6 text-white font-medium flex-wrap justify-center md:justify-start">
+            <li>
+              <Link href="#home" className="hover:text-[#ff8c66] transition">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="#about" className="hover:text-[#ff8c66] transition">
+                About
+              </Link>
+            </li>
+            <li>
+              <Link href="#skills" className="hover:text-[#ff8c66] transition">
+                Skills
+              </Link>
+            </li>
+            <li>
+              <Link href="#projects" className="hover:text-[#ff8c66] transition">
+                Projects
+              </Link>
+            </li>
+            <li>
+              <Link href="#contact" className="hover:text-[#ff8c66] transition">
+                Contact
+              </Link>
+            </li>
+          </ul>
         </nav>
 
-        {/* Réseaux */}
-        <div className="flex gap-4 text-xl">
-          <a href="https://github.com/BYADRIEN" target="_blank" className="hover:text-purple-400 transition">
-            <i className="ri-github-fill"></i>
+        {/* Réseaux sociaux */}
+        <div className="flex gap-4 justify-center md:justify-end mt-4 md:mt-0">
+          <a
+            href="https://github.com/BYADRIEN"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#ff8c66] transition"
+          >
+            GitHub
           </a>
-          <a href="https://www.linkedin.com" target="_blank" className="hover:text-purple-400 transition">
-            <i className="ri-linkedin-box-fill"></i>
-          </a>
-          <a href="mailto:selleadrien@gmail.com" className="hover:text-purple-400 transition">
-            <i className="ri-mail-line"></i>
+          <a
+            href="https://www.linkedin.com/in/adrien-selle/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-[#ff8c66] transition"
+          >
+            LinkedIn
           </a>
         </div>
       </div>
 
-      {/* Bas du footer */}
-      <p className="mt-8 text-center text-xs opacity-50">
-        © {new Date().getFullYear()} — Crafted with ❤️ & Next.js
-      </p>
+      {/* Copyright */}
+      <div className="text-sm opacity-70 text-center mt-6">
+        © {new Date().getFullYear()} Adrien Selle. All rights reserved.
+      </div>
     </footer>
   );
 }
