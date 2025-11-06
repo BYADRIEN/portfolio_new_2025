@@ -7,14 +7,14 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
         {/* Logo / Nom */}
         <div className="text-2xl font-bold text-white">
-          Adrien Selle
+          Adrien <span className="text-[#ff8c66]">Dev</span>
         </div>
 
         {/* Liens de navigation */}
         <nav>
           <ul className="flex gap-6 text-white font-medium">
             <li>
-              <Link href="#home" className="hover:text-[#ff8c66] transition">
+              <Link href="/" className="hover:text-[#ff8c66] transition">
                 Home
               </Link>
             </li>
@@ -34,7 +34,7 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="#contact" className="hover:text-[#ff8c66] transition">
+              <Link href="/contact" className="hover:text-[#ff8c66] transition">
                 Contact
               </Link>
             </li>
