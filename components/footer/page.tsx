@@ -15,7 +15,7 @@ export default function Footer() {
 
         {/* Navigation */}
         <nav className="text-center">
-          <ul className="flex flex-col md:flex-row gap-4 md:gap-8 text-white font-medium justify-center md:justify-between">
+          <ul className="flex flex-col md:flex-row gap-4 md:gap-6 text-white font-medium justify-center md:justify-between">
             <li className="whitespace-nowrap">
               <Link href="/" className="hover:text-[#ff8c66] transition">
                 Accueil
