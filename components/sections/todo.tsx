@@ -11,7 +11,7 @@ export default function Skills() {
       id="skills"
       className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-gradient-to-b from-[#2ca678] via-[#1d5f4c] to-[#2ca678] text-white"
     >
-      <h2 className={`text-4xl sm:text-5xl font-bold mb-12 ${jetBrains.variable} font-mono`}>
+      <h2 className={`text-2xl sm:text-5xl font-bold mb-12 ${jetBrains.variable} font-mono`}>
         <Typewriter
           words={['Compétences clés']}
           loop
