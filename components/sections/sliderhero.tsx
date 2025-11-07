@@ -10,7 +10,7 @@ export default function Hero() {
       id="home"
       className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-[#1d5f4c] via-[#2ca678] to-[#1a3f2c] text-white"
     >
-      <h1 className={`text-5xl sm:text-6xl font-bold mb-6 ${jetBrains.variable} font-mono`}>
+      <h1 className={`text-2xl sm:text-6xl font-bold mb-6 ${jetBrains.variable} font-mono`}>
         <Typewriter
           words={[
             'Hello, je suis Adrien 👋',
@@ -26,7 +26,7 @@ export default function Hero() {
           delaySpeed={2000}
         />
       </h1>
-      <p className="text-xl sm:text-2xl max-w-xl opacity-90 mb-8 font-sans">
+      <p className=" sm:text-2xl max-w-xl opacity-90 mb-8 font-sans">
         Je transforme vos idées en projets web concrets 🚀
       </p>
       <div className="flex gap-6">

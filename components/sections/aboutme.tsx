@@ -11,7 +11,7 @@ export default function About() {
       id="about"
       className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-[#eaf6f1] text-[#1d5f4c]"
     >
-      <h2 className={`text-4xl sm:text-5xl font-bold mb-4 ${jetBrains.variable} font-mono`}>
+      <h2 className={`text-2xl sm:text-5xl font-bold mb-4 ${jetBrains.variable} font-mono`}>
         <Typewriter
           words={['À propos de moi']}
           loop
