@@ -63,7 +63,7 @@ export default function Projects() {
 
           {/* Texte + Lien */}
           <div className="w-full md:w-2/3 flex flex-col gap-4 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl font-semibold">Laboh des Thés</h3>
+            <h3 className="text-2xl sm:text-3xl font-semibold">Labo des Thés</h3>
 
             <p className="leading-relaxed text-base sm:text-lg">
               Site e-commerce moderne permettant aux amateurs de thé de découvrir et acheter des produits de qualité.

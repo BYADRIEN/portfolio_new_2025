@@ -22,17 +22,17 @@ export default function Footer() {
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="#about" className="hover:text-[#ff8c66] transition">
+              <Link href="/#about" className="hover:text-[#ff8c66] transition">
                 À propos
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="#skills" className="hover:text-[#ff8c66] transition">
+              <Link href="/#skills" className="hover:text-[#ff8c66] transition">
                 Compétences
               </Link>
             </li>
             <li className="whitespace-nowrap">
-              <Link href="#projects" className="hover:text-[#ff8c66] transition">
+              <Link href="/#projects" className="hover:text-[#ff8c66] transition">
                 Projets
               </Link>
             </li>

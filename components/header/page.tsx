@@ -9,12 +9,11 @@ export default function Navbar() {
   return (
     <header className="bg-[#1d5f4c] py-5 shadow-md sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 flex justify-between items-center">
-        {/* Logo / Nom */}
+
         <div className="text-2xl font-bold text-white">
           Adrien <span className="text-[#ff8c66]">Dev</span>
         </div>
 
-        {/* Liens Desktop */}
         <nav className="hidden md:flex">
           <ul className="flex gap-6 text-white font-medium">
             <li>
@@ -23,17 +22,17 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="#about" className="hover:text-[#ff8c66] transition">
+              <Link href="/#about" className="hover:text-[#ff8c66] transition">
                 À propos
               </Link>
             </li>
             <li>
-              <Link href="#skills" className="hover:text-[#ff8c66] transition">
+              <Link href="/#skills" className="hover:text-[#ff8c66] transition">
                 Compétences
               </Link>
             </li>
             <li>
-              <Link href="#projects" className="hover:text-[#ff8c66] transition">
+              <Link href="/#projects" className="hover:text-[#ff8c66] transition">
                 Projets
               </Link>
             </li>
@@ -45,7 +44,6 @@ export default function Navbar() {
           </ul>
         </nav>
 
-        {/* Bouton mobile */}
         <div className="md:hidden flex items-center">
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -56,7 +54,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Menu mobile */}
       {isOpen && (
         <nav className="md:hidden bg-[#1d5f4c] w-full px-6 pt-4 pb-6">
           <ul className="flex flex-col gap-4 text-white font-medium">
@@ -66,17 +63,17 @@ export default function Navbar() {
               </Link>
             </li>
             <li>
-              <Link href="#about" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
+              <Link href="/#about" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
                 À propos
               </Link>
             </li>
             <li>
-              <Link href="#skills" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
+              <Link href="/#skills" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
                 Compétences
               </Link>
             </li>
             <li>
-              <Link href="#projects" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
+              <Link href="/#projects" className="hover:text-[#ff8c66] transition" onClick={() => setIsOpen(false)}>
                 Projets
               </Link>
             </li>

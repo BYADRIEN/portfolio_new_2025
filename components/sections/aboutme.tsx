@@ -13,7 +13,7 @@ export default function About() {
     >
       <h2 className={`text-2xl sm:text-5xl font-bold mb-4 ${jetBrains.variable} font-mono`}>
         <Typewriter
-          words={['À propos de moi']}
+          words={['À mon propos']}
           loop
           cursor
           cursorStyle="|"
