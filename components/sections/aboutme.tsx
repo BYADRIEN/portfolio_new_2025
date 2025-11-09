@@ -31,7 +31,7 @@ export default function About() {
         {/* Photo */}
         <div className="w-48 h-48 md:w-60 md:h-60 flex-shrink-0">
           <img
-            src="/images/adrien.jpg" // ← Mets ici ta vraie photo
+            src="/images/adrien.jpg"
             alt="Adrien Selle"
             className="rounded-full shadow-lg object-cover w-full h-full"
           />
@@ -48,6 +48,17 @@ export default function About() {
             Mon objectif ? Construire des projets qui <strong className="font-semibold text-[#ff8c66]">ont un impact</strong> et qui rendent les utilisateurs heureux.
           </p>
 
+          {/* Intégration de la valeur ajoutée directement dans le texte */}
+          <p className="opacity-90">
+            Je m’efforce de créer des projets qui apportent un vrai <span className="text-[#ff8c66] font-semibold">ROI pour mes clients</span>, 
+            en combinant performance, ergonomie et design moderne. Chaque site que je réalise est pensé pour 
+            <span className="text-[#ff8c66] font-semibold"> augmenter l’engagement</span> et offrir une expérience utilisateur optimale.
+            Ce qui me <span className="text-[#ff8c66] font-semibold">différencie</span> des autres développeurs ? 
+            Une approche sur-mesure, un souci du détail dans le design et le code, et une réelle compréhension des besoins 
+            business afin de transformer les idées en solutions concrètes et efficaces.
+          </p>
+
+          {/* Compétences */}
           <div className="flex justify-center md:justify-start gap-6 mt-6 flex-wrap">
             <div className="flex flex-col items-center">
               <FaHtml5 className="text-[#e34c26] w-8 h-8 mb-2" />
@@ -71,6 +82,7 @@ export default function About() {
             </div>
           </div>
 
+          {/* Stats */}
           <div className="flex justify-center md:justify-start gap-12 mt-8 text-[#1d5f4c] font-semibold flex-wrap">
             <div>
               <span className="text-[#ff8c66] text-2xl font-bold">3+</span> projets réalisés
@@ -85,6 +97,7 @@ export default function About() {
         </div>
       </div>
 
+      {/* Bouton contact */}
       <div className="mt-10 flex gap-6 flex-wrap justify-center">
         <a
           href="/contact"
