@@ -1,113 +1,137 @@
 'use client';
-import { FaGithub, FaPlay } from 'react-icons/fa';
+
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import { JetBrains_Mono } from 'next/font/google';
-import dynamic from 'next/dynamic';
 
-const Typewriter = dynamic(
-  () => import('react-simple-typewriter').then(mod => mod.Typewriter),
-  { ssr: false }
-);
-
-const jetBrains = JetBrains_Mono({ subsets: ['latin'], weight: '400', variable: '--font-jetbrains' });
+const jetBrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-jetbrains'
+});
 
 export default function Projects() {
-  const phrases = ['Projets en vedette'];
-
   return (
     <section
       id="projects"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-[#eaf6f1] text-[#1d5f4c]"
+      className="relative py-32 px-6 overflow-hidden
+      bg-gradient-to-b from-[#0b1f33] via-[#0f2d4a] to-[#0b1f33] text-white"
     >
-      <h2
-        className={`text-2xl sm:text-5xl font-bold mb-4 text-center ${jetBrains.variable} font-mono`}
-      >
-        <Typewriter
-          words={phrases}
-          loop
-          cursor
-          cursorStyle="|"
-          cursorColor="#ff8c66"
-          typeSpeed={80}
-          deleteSpeed={50}
-          delaySpeed={2000}
-        />
-      </h2>
-
-      <span className="w-20 h-1 bg-[#ff8c66] rounded-full mb-12"></span>
-
-      {/* Labo des Thés */}
-      <div className="w-full max-w-4xl mb-16">
-        <div className="bg-white/30 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:scale-[1.02] flex flex-col md:flex-row gap-6">
-          <div className="w-full md:w-1/3 flex justify-center">
-            <img
-              src="/images/laboh-teas.jpg"
-              alt="Laboh des Thés"
-              className="rounded-lg shadow-md object-cover w-full h-48 md:h-full hover:scale-105 transition-transform"
-            />
-          </div>
-
-          <div className="w-full md:w-2/3 flex flex-col gap-4 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl font-semibold">Labo des Thés</h3>
-            <p className="leading-relaxed text-base sm:text-lg">
-              Site e-commerce moderne permettant aux amateurs de thé de découvrir et acheter des produits de qualité.
-              Conçu dans le cadre de mon TFE avec <strong className="text-[#ff8c66]">Laravel</strong> & <strong className="text-[#ff8c66]">MySQL</strong>.
-              Interface propre, animations douces et design responsive.
-            </p>
-            <div className="flex gap-4 mt-2 justify-center md:justify-start">
-              <a
-                href="https://github.com/BYADRIEN/Labo-th-s"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#1d5f4c] hover:text-[#2ca678] font-semibold transition-colors"
-              >
-                <FaGithub className="text-xl" /> Voir le code
-              </a>
-            </div>
-          </div>
-        </div>
+      {/* Glow background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-32 left-1/4 w-[500px] h-[500px] bg-cyan-400/20 blur-[160px] rounded-full" />
+        <div className="absolute bottom-32 right-1/4 w-[500px] h-[500px] bg-blue-500/20 blur-[160px] rounded-full" />
       </div>
 
-      {/* Roue comme projet */}
-      <div className="w-full max-w-4xl mb-16">
-        <div className="bg-white/30 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-2xl transition-transform hover:scale-[1.02] flex flex-col md:flex-row gap-6">
-          {/* Image / visuel */}
-          <div className="w-full md:w-1/3 flex justify-center">
-            <img
-              src="/images/zz.png" // <-- mettre une image représentative de la roue
-              alt="Roue - Une seule chance"
-              className="rounded-lg shadow-md object-cover w-full h-48 md:h-full hover:scale-105 transition-transform"
-            />
-          </div>
+      <div className="max-w-6xl mx-auto">
+        {/* Title */}
+        <div className="text-center mb-24">
+          <h2
+            className={`text-4xl sm:text-5xl font-bold mb-6
+            ${jetBrains.variable} font-mono`}
+          >
+            Mes projets
+          </h2>
+          <span className="block w-24 h-1 bg-cyan-400 rounded-full mx-auto mb-10"></span>
+          <p className="text-white/75 text-lg max-w-2xl mx-auto">
+            Une sélection de projets qui illustrent mon approche du développement :
+            design moderne, code propre et expérience utilisateur soignée.
+          </p>
+        </div>
 
-          {/* Texte + liens */}
-          <div className="w-full md:w-2/3 flex flex-col gap-4 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl font-semibold">Roue - Une seule chance</h3>
-            <p className="leading-relaxed text-base sm:text-lg">
-              Petit jeu interactif permettant aux visiteurs de découvrir leur saveur ou gain surprise ! 
-              Démonstration d’animations CSS et interactions JavaScript dynamiques. 
-              Design responsive, couleurs dynamiques et intégré directement dans mon portfolio.
-            </p>
-            <div className="flex gap-4 mt-2 justify-center md:justify-start">
-              <a
-                href="https://github.com/BYADRIEN/roue_shortys"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#1d5f4c] hover:text-[#2ca678] font-semibold transition-colors"
-              >
-                <FaGithub className="text-xl" /> Voir le code
-              </a>
-              <a
-                href="https://byadrien.github.io/roue_shortys/" // <-- lien testable du projet
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#1d5f4c] hover:text-[#ff8c66] font-semibold transition-colors"
-              >
-                <FaPlay className="text-xl" /> Tester
-              </a>
-            </div>
-          </div>
+        {/* Projects grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
+          <ProjectCard
+            image="/images/laboh-teas.jpg"
+            title="Labo des Thés"
+            stack="Laravel · MySQL · Tailwind"
+            description="Plateforme e-commerce développée dans le cadre de mon TFE.
+            Gestion des produits, commandes et interface moderne orientée utilisateur."
+            github="https://github.com/BYADRIEN/Labo-th-s"
+          />
+
+          <ProjectCard
+            image="/images/zz.png"
+            title="Roue – Une seule chance"
+            stack="JavaScript · CSS · Animations"
+            description="Mini-jeu interactif mettant l’accent sur les animations,
+            l’interaction utilisateur et un design ludique."
+            github="https://github.com/BYADRIEN/roue_shortys"
+            demo="https://byadrien.github.io/roue_shortys/"
+          />
         </div>
       </div>
     </section>
+  );
+}
+
+function ProjectCard({
+  image,
+  title,
+  description,
+  stack,
+  github,
+  demo
+}: {
+  image: string;
+  title: string;
+  description: string;
+  stack: string;
+  github: string;
+  demo?: string;
+}) {
+  return (
+    <div
+      className="group relative rounded-3xl overflow-hidden
+      bg-white/5 backdrop-blur-xl border border-white/10
+      transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/40"
+    >
+      {/* Image */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover
+          transition-transform duration-700 group-hover:scale-110"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f33]/90 to-transparent" />
+      </div>
+
+      {/* Content */}
+      <div className="p-8 flex flex-col gap-6">
+        <div>
+          <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+          <p className="text-cyan-400 text-sm font-medium">{stack}</p>
+        </div>
+
+        <p className="text-white/75 leading-relaxed">
+          {description}
+        </p>
+
+        {/* Links */}
+        <div className="flex gap-6 mt-4">
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-cyan-400 font-semibold
+            hover:text-white transition-colors"
+          >
+            <FaGithub /> Code
+          </a>
+
+          {demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-cyan-400 font-semibold
+              hover:text-white transition-colors"
+            >
+              <FaExternalLinkAlt /> Voir le projet
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

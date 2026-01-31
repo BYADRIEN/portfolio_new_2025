@@ -1,110 +1,138 @@
 'use client';
-import { JetBrains_Mono } from 'next/font/google';
-import { FaHtml5, FaCss3Alt, FaJs, FaLaravel, FaDatabase } from 'react-icons/fa';
-import { Typewriter } from 'react-simple-typewriter';
 
-const jetBrains = JetBrains_Mono({ subsets: ['latin'], weight: '400', variable: '--font-jetbrains' });
+import { motion } from 'framer-motion';
+import { JetBrains_Mono } from 'next/font/google';
+import {
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaLaravel,
+  FaDatabase,
+} from 'react-icons/fa';
+
+const jetBrains = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-jetbrains',
+});
+
+const skills = [
+  { icon: <FaHtml5 />, color: '#e34c26', label: 'HTML' },
+  { icon: <FaCss3Alt />, color: '#264de4', label: 'CSS' },
+  { icon: <FaJs />, color: '#f0db4f', label: 'JavaScript' },
+  { icon: <FaLaravel />, color: '#ff2d20', label: 'Laravel' },
+  { icon: <FaDatabase />, color: '#1d5f4c', label: 'MySQL' },
+];
 
 export default function About() {
   return (
     <section
       id="about"
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-[#eaf6f1] text-[#1d5f4c]"
+      className="relative py-32 px-6 bg-[#0b1f3a] text-white overflow-hidden"
     >
-      <h2 className={`text-2xl sm:text-5xl font-bold mb-4 ${jetBrains.variable} font-mono`}>
-        <Typewriter
-          words={['À mon propos']}
-          loop
-          cursor
-          cursorStyle="|"
-          cursorColor="#ff8c66"
-          typeSpeed={80}
-          deleteSpeed={50}
-          delaySpeed={2000}
-        />
-      </h2>
-      <span className="w-20 h-1 bg-[#ff8c66] rounded-full mb-10"></span>
+      {/* subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-indigo-500/10" />
 
-      {/* Conteneur photo + texte */}
-      <div className="flex flex-col md:flex-row items-center md:items-start max-w-4xl gap-10 text-center md:text-left">
-        
-        {/* Photo */}
-        <div className="w-48 h-48 md:w-60 md:h-60 flex-shrink-0">
-          <img
-            src="/images/adrien.jpg"
-            alt="Adrien Selle"
-            className="rounded-full shadow-lg object-cover w-full h-full"
-          />
-        </div>
-
-        {/* Texte et compétences */}
-        <div className="flex-1 space-y-6">
-          <p>
-            Je crée des sites modernes, rapides et élégants, pensés pour offrir la meilleure expérience utilisateur.
-          </p>
-
-          <p className="opacity-90">
-            J’aime transformer des idées en projets concrets, avec une attention particulière portée au design et aux performances. 
-            Mon objectif ? Construire des projets qui <strong className="font-semibold text-[#ff8c66]">ont un impact</strong> et qui rendent les utilisateurs heureux.
-          </p>
-
-          {/* Intégration de la valeur ajoutée directement dans le texte */}
-          <p className="opacity-90">
-            Je m’efforce de créer des projets qui apportent un vrai <span className="text-[#ff8c66] font-semibold">ROI pour mes clients</span>, 
-            en combinant performance, ergonomie et design moderne. Chaque site que je réalise est pensé pour 
-            <span className="text-[#ff8c66] font-semibold"> augmenter l’engagement</span> et offrir une expérience utilisateur optimale.
-            Ce qui me <span className="text-[#ff8c66] font-semibold">différencie</span> des autres développeurs ? 
-            Une approche sur-mesure, un souci du détail dans le design et le code, et une réelle compréhension des besoins 
-            business afin de transformer les idées en solutions concrètes et efficaces.
-          </p>
-
-          {/* Compétences */}
-          <div className="flex justify-center md:justify-start gap-6 mt-6 flex-wrap">
-            <div className="flex flex-col items-center">
-              <FaHtml5 className="text-[#e34c26] w-8 h-8 mb-2" />
-              <span>HTML</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <FaCss3Alt className="text-[#264de4] w-8 h-8 mb-2" />
-              <span>CSS</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <FaJs className="text-[#f0db4f] w-8 h-8 mb-2" />
-              <span>JavaScript</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <FaLaravel className="text-[#ff2d20] w-8 h-8 mb-2" />
-              <span>Laravel</span>
-            </div>
-            <div className="flex flex-col items-center">
-              <FaDatabase className="text-[#1d5f4c] w-8 h-8 mb-2" />
-              <span>MySQL</span>
-            </div>
-          </div>
-
-          {/* Stats */}
-          <div className="flex justify-center md:justify-start gap-12 mt-8 text-[#1d5f4c] font-semibold flex-wrap">
-            <div>
-              <span className="text-[#ff8c66] text-2xl font-bold">3+</span> projets réalisés
-            </div>
-            <div>
-              <span className="text-[#ff8c66] text-2xl font-bold">2+</span> ans d’expérience
-            </div>
-            <div>
-              <span className="text-[#ff8c66] text-2xl font-bold">100%</span> satisfaction clients
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bouton contact */}
-      <div className="mt-10 flex gap-6 flex-wrap justify-center">
-        <a
-          href="/contact"
-          className="px-8 py-3 bg-[#ff8c66] text-white font-semibold rounded-lg hover:opacity-90 transition shadow-md hover:shadow-lg"
+      <div className="relative z-10 max-w-6xl mx-auto">
+        {/* TITLE */}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`text-3xl sm:text-5xl font-bold text-center mb-20 ${jetBrains.variable} font-mono`}
         >
-          Me contacter ✉️
-        </a>
+          À propos
+        </motion.h2>
+
+        {/* CONTENT CARD */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid md:grid-cols-[260px_1fr] gap-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 md:p-14 shadow-2xl"
+        >
+          {/* PHOTO */}
+          <div className="flex justify-center">
+            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-sky-400 shadow-xl">
+              <img
+                src="/images/adrien.jpg"
+                alt="Adrien Selle"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* TEXT */}
+          <div className="space-y-6 text-center md:text-left">
+            <p className="text-xl font-medium">
+              Je suis <span className="text-sky-400">Adrien</span>, développeur web
+              full stack spécialisé dans la création de sites modernes,
+              performants et orientés utilisateur.
+            </p>
+
+            <p className="text-white/80 leading-relaxed">
+              J’aime transformer des idées en expériences concrètes : une
+              interface claire, une logique solide côté back-end et une attention
+              particulière aux performances.
+            </p>
+
+            <p className="text-white/80 leading-relaxed">
+              Mon objectif est simple : livrer des projets qui apportent un vrai{' '}
+              <span className="text-sky-400 font-semibold">
+                impact business
+              </span>
+              , améliorent l’engagement et renforcent la crédibilité des marques.
+            </p>
+
+            {/* SKILLS */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-6 pt-6">
+              {skills.map((skill) => (
+                <div
+                  key={skill.label}
+                  className="flex flex-col items-center gap-2 text-sm font-medium"
+                >
+                  <div
+                    className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 shadow-md"
+                    style={{ color: skill.color }}
+                  >
+                    {skill.icon}
+                  </div>
+                  {skill.label}
+                </div>
+              ))}
+            </div>
+
+            {/* STATS */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-10 text-sm font-semibold">
+              <div>
+                <span className="block text-3xl text-sky-400">3+</span>
+                Projets réalisés
+              </div>
+              <div>
+                <span className="block text-3xl text-sky-400">2+</span>
+                Ans d’expérience
+              </div>
+              <div>
+                <span className="block text-3xl text-sky-400">100%</span>
+                Clients satisfaits
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* CTA */}
+        <div className="flex justify-center mt-20">
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-4 rounded-xl bg-sky-400 text-slate-900 font-semibold shadow-xl hover:bg-sky-300 transition"
+          >
+            Travaillons ensemble
+          </motion.a>
+        </div>
       </div>
     </section>
   );
