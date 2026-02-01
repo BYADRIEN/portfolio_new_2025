@@ -1,14 +1,9 @@
 'use client';
 
+import { useI18n } from '@/Locales/client'; 
 import { motion } from 'framer-motion';
 import { JetBrains_Mono } from 'next/font/google';
-import {
-  FaHtml5,
-  FaCss3Alt,
-  FaJs,
-  FaLaravel,
-  FaDatabase,
-} from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaJs, FaLaravel, FaDatabase } from 'react-icons/fa';
 
 const jetBrains = JetBrains_Mono({
   subsets: ['latin'],
@@ -25,78 +20,56 @@ const skills = [
 ];
 
 export default function About() {
+  const t = useI18n();
+
   return (
-    <section
-      id="about"
-      className="relative py-32 px-6 bg-[#0b1f3a] text-white overflow-hidden"
-    >
-      {/* subtle background glow */}
+    <section id="about" className="relative py-32 px-6 bg-[#0b1f3a] text-white overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-transparent to-indigo-500/10" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
-        {/* TITLE */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className={`text-3xl sm:text-5xl font-bold text-center mb-20 ${jetBrains.variable} font-mono`}
         >
-          À propos
+          {t('about.title')}
         </motion.h2>
 
-        {/* CONTENT CARD */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
           className="grid md:grid-cols-[260px_1fr] gap-14 bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-10 md:p-14 shadow-2xl"
         >
-          {/* PHOTO */}
           <div className="flex justify-center">
             <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-sky-400 shadow-xl">
-              <img
-                src="/images/adrien.jpg"
-                alt="Adrien Selle"
-                className="w-full h-full object-cover"
-              />
+              <img src="/images/adrien.jpg" alt="Adrien Selle" className="w-full h-full object-cover" />
             </div>
           </div>
 
-          {/* TEXT */}
           <div className="space-y-6 text-center md:text-left">
             <p className="text-xl font-medium">
-              Je suis <span className="text-sky-400">Adrien</span>, développeur web
-              full stack spécialisé dans la création de sites modernes,
-              performants et orientés utilisateur.
+              {t('about.intro')}
+              <span className="text-sky-400">{t('about.name')}</span>
+              {t('about.role')}
+            </p>
+
+            <p className="text-white/80 leading-relaxed italic">
+              {t('about.desc')}
             </p>
 
             <p className="text-white/80 leading-relaxed">
-              J’aime transformer des idées en expériences concrètes : une
-              interface claire, une logique solide côté back-end et une attention
-              particulière aux performances.
-            </p>
-
-            <p className="text-white/80 leading-relaxed">
-              Mon objectif est simple : livrer des projets qui apportent un vrai{' '}
-              <span className="text-sky-400 font-semibold">
-                impact business
-              </span>
-              , améliorent l’engagement et renforcent la crédibilité des marques.
+              {t('about.goal_start')}
+              <span className="text-sky-400 font-semibold">{t('about.goal_impact')}</span>
+              {t('about.goal_end')}
             </p>
 
             {/* SKILLS */}
             <div className="flex flex-wrap justify-center md:justify-start gap-6 pt-6">
               {skills.map((skill) => (
-                <div
-                  key={skill.label}
-                  className="flex flex-col items-center gap-2 text-sm font-medium"
-                >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 shadow-md"
-                    style={{ color: skill.color }}
-                  >
+                <div key={skill.label} className="flex flex-col items-center gap-2 text-sm font-medium">
+                  <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-white/10 shadow-md" style={{ color: skill.color }}>
                     {skill.icon}
                   </div>
                   {skill.label}
@@ -108,21 +81,20 @@ export default function About() {
             <div className="flex flex-wrap justify-center md:justify-start gap-12 pt-10 text-sm font-semibold">
               <div>
                 <span className="block text-3xl text-sky-400">3+</span>
-                Projets réalisés
+                {t('stats.projects')}
               </div>
               <div>
                 <span className="block text-3xl text-sky-400">2+</span>
-                Ans d’expérience
+                {t('stats.exp')}
               </div>
               <div>
                 <span className="block text-3xl text-sky-400">100%</span>
-                Clients satisfaits
+                {t('stats.satisfied')}
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* CTA */}
         <div className="flex justify-center mt-20">
           <motion.a
             href="#contact"
@@ -130,7 +102,7 @@ export default function About() {
             whileTap={{ scale: 0.95 }}
             className="px-10 py-4 rounded-xl bg-sky-400 text-slate-900 font-semibold shadow-xl hover:bg-sky-300 transition"
           >
-            Travaillons ensemble
+            {t('about.cta')}
           </motion.a>
         </div>
       </div>

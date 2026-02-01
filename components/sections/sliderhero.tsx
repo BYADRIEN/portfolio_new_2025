@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Typewriter } from 'react-simple-typewriter';
 import { JetBrains_Mono } from 'next/font/google';
+import { useI18n } from '@/Locales/client'; // Import indispensable
 
 const jetBrains = JetBrains_Mono({
   subsets: ['latin'],
@@ -11,6 +12,8 @@ const jetBrains = JetBrains_Mono({
 });
 
 export default function Hero() {
+  const t = useI18n();
+
   return (
     <section
       id="home"
@@ -49,13 +52,14 @@ export default function Hero() {
         className="relative z-10 max-w-3xl text-center"
       >
         <h1
-          className={`text-3xl sm:text-6xl font-bold mb-6 ${jetBrains.variable} font-mono`}
+          className={`text-3xl sm:text-6xl font-bold mb-6 ${jetBrains.variable} font-mono min-h-[80px] sm:min-h-[120px]`}
         >
+          {/* On passe les clés traduites au tableau 'words' */}
           <Typewriter
             words={[
-              'Hello, je suis Adrien 👋',
-              'Développeur Web Full Stack',
-              'Je crée des expériences modernes',
+              t('hero.hello'),
+              t('hero.role'),
+              t('hero.experience'),
             ]}
             loop
             cursor
@@ -68,7 +72,7 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg sm:text-2xl opacity-85 mb-12">
-          Des sites rapides, élégants et pensés pour l’utilisateur 🚀
+          {t('hero.subtitle')}
         </p>
 
         <motion.a
@@ -80,7 +84,7 @@ export default function Hero() {
           hover:bg-sky-300
           shadow-lg shadow-sky-400/30 transition"
         >
-          Voir mes projets
+          {t('hero.cta')}
         </motion.a>
       </motion.div>
     </section>

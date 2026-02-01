@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from "react";
+import { useI18n } from '@/Locales/client';
 
 export default function ContactSection() {
   const [status, setStatus] = useState("");
+  const t = useI18n();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,10 +19,10 @@ export default function ContactSection() {
     });
 
     if (response.ok) {
-      setStatus("Message envoyé avec succès ✅");
+      setStatus(t('contact.status.success')); // Traduction du succès
       form.reset();
     } else {
-      setStatus("Une erreur est survenue, réessayez plus tard.");
+      setStatus(t('contact.status.error')); // Traduction de l'erreur
     }
   };
 
@@ -41,29 +43,20 @@ export default function ContactSection() {
         {/* Left content */}
         <div className="text-white">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
-            Un projet en tête ?
+            {t('contact.title')}
           </h2>
 
           <p className="text-white/75 text-lg mb-12 leading-relaxed">
-            Discutons de votre idée, d’un besoin spécifique ou d’une collaboration.
-            Je réponds rapidement et avec plaisir.
+            {t('contact.subtitle')}
           </p>
 
           <div className="flex flex-col gap-4 text-white/80 text-base">
-            <a
-              href="mailto:selleadrien@gmail.com"
-              className="hover:text-cyan-400 transition"
-            >
+            <a href="mailto:selleadrien@gmail.com" className="hover:text-cyan-400 transition">
               ✉️ selleadrien@gmail.com
             </a>
-
-            <a
-              href="tel:+32472542413"
-              className="hover:text-cyan-400 transition"
-            >
+            <a href="tel:+32472542413" className="hover:text-cyan-400 transition">
               📞 +32 472 54 24 13
             </a>
-
             <a
               href="https://wa.me/32472542413"
               target="_blank"
@@ -72,54 +65,42 @@ export default function ContactSection() {
             >
               💬 WhatsApp
             </a>
-
-            <span>📍 Charleroi, Belgique</span>
+            <span>{t('contact.location')}</span>
           </div>
         </div>
 
         {/* Form */}
-        <div
-          className="relative bg-white/5 backdrop-blur-xl rounded-3xl
-          p-10 shadow-2xl border border-white/10"
-        >
+        <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-10 shadow-2xl border border-white/10">
           <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
             <input
               name="name"
               type="text"
-              placeholder="Votre nom"
+              placeholder={t('contact.placeholder.name')}
               required
-              className="bg-white/10 text-white placeholder-white/50
-              border border-white/10 rounded-xl px-4 py-3
-              focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="bg-white/10 text-white placeholder-white/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
 
             <input
               name="email"
               type="email"
-              placeholder="Votre email"
+              placeholder={t('contact.placeholder.email')}
               required
-              className="bg-white/10 text-white placeholder-white/50
-              border border-white/10 rounded-xl px-4 py-3
-              focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="bg-white/10 text-white placeholder-white/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
 
             <textarea
               name="message"
               rows={5}
-              placeholder="Votre message..."
+              placeholder={t('contact.placeholder.message')}
               required
-              className="bg-white/10 text-white placeholder-white/50
-              border border-white/10 rounded-xl px-4 py-3
-              focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="bg-white/10 text-white placeholder-white/50 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             />
 
             <button
               type="submit"
-              className="mt-2 bg-cyan-400 text-[#0b1f33]
-              py-3 rounded-xl font-semibold tracking-wide
-              hover:bg-cyan-300 transition-all duration-300"
+              className="mt-2 bg-cyan-400 text-[#0b1f33] py-3 rounded-xl font-semibold tracking-wide hover:bg-cyan-300 transition-all duration-300"
             >
-              Envoyer le message
+              {t('contact.btn')}
             </button>
           </form>
 

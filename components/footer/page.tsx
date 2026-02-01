@@ -3,8 +3,11 @@
 import Link from 'next/link';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiMalt } from 'react-icons/si';
+import { useI18n } from '@/Locales/client';
 
 export default function Footer() {
+  const t = useI18n();
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#020617] via-[#0b1f33] to-[#020617] text-white">
       
@@ -25,7 +28,7 @@ export default function Footer() {
               Adrien<span className="text-cyan-400">Dev</span>
             </h2>
             <p className="mt-2 text-sm text-white/70">
-              Développeur Web Full Stack <br />
+              {t('footer.role')} <br />
               Laravel • Front-end • UX
             </p>
           </div>
@@ -33,11 +36,11 @@ export default function Footer() {
           {/* Navigation */}
           <nav className="flex justify-center">
             <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium text-white/80">
-              <li><Link href="/" className="hover:text-cyan-400 transition">Accueil</Link></li>
-              <li><Link href="/#about" className="hover:text-cyan-400 transition">À propos</Link></li>
-              <li><Link href="/#skills" className="hover:text-cyan-400 transition">Compétences</Link></li>
-              <li><Link href="/#projects" className="hover:text-cyan-400 transition">Projets</Link></li>
-              <li><Link href="/#contact" className="hover:text-cyan-400 transition">Contact</Link></li>
+              <li><Link href="/" className="hover:text-cyan-400 transition">{t('footer.nav.home')}</Link></li>
+              <li><Link href="/#about" className="hover:text-cyan-400 transition">{t('footer.nav.about')}</Link></li>
+              <li><Link href="/#skills" className="hover:text-cyan-400 transition">{t('footer.nav.skills')}</Link></li>
+              <li><Link href="/#projects" className="hover:text-cyan-400 transition">{t('footer.nav.projects')}</Link></li>
+              <li><Link href="/#contact" className="hover:text-cyan-400 transition">{t('footer.nav.contact')}</Link></li>
             </ul>
           </nav>
 
@@ -46,11 +49,9 @@ export default function Footer() {
             <SocialLink href="https://github.com/BYADRIEN">
               <FaGithub />
             </SocialLink>
-
             <SocialLink href="https://www.linkedin.com/in/adrien-selle/">
               <FaLinkedin />
             </SocialLink>
-
             <SocialLink href="https://www.malt.fr/profile/adrienselle">
               <SiMalt />
             </SocialLink>
@@ -62,14 +63,14 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="text-center text-xs text-white/50">
-          © {new Date().getFullYear()} Adrien Selle — Tous droits réservés
+          © {new Date().getFullYear()} Adrien Selle — {t('footer.rights')}
         </div>
       </div>
     </footer>
   );
 }
 
-/* Social button */
+/* Social button remains unchanged */
 function SocialLink({
   href,
   children,
