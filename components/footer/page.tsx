@@ -1,22 +1,32 @@
 'use client';
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiMalt } from 'react-icons/si';
-import { useI18n } from '@/Locales/client';
+import { useI18n, useCurrentLocale } from '@/Locales/client';
 
 export default function Footer() {
   const t = useI18n();
+  const currentLocale = useCurrentLocale();
+  const router = useRouter();
+
+  const handleClick = (id: string) => {
+    const path = window.location.pathname;
+
+    if (path === `/${currentLocale}` || path === '/') {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      router.push(`/${currentLocale}#${id}`);
+    }
+  };
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#020617] via-[#0b1f33] to-[#020617] text-white">
       
-      {/* Glow background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-cyan-500/10 blur-[140px] rounded-full" />
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-blue-600/10 blur-[140px] rounded-full" />
-      </div>
-
       <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col gap-12">
 
         {/* Top */}
@@ -36,11 +46,37 @@ export default function Footer() {
           {/* Navigation */}
           <nav className="flex justify-center">
             <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium text-white/80">
-              <li><Link href="/" className="hover:text-cyan-400 transition">{t('footer.nav.home')}</Link></li>
-              <li><Link href="/#about" className="hover:text-cyan-400 transition">{t('footer.nav.about')}</Link></li>
-              <li><Link href="/#skills" className="hover:text-cyan-400 transition">{t('footer.nav.skills')}</Link></li>
-              <li><Link href="/#projects" className="hover:text-cyan-400 transition">{t('footer.nav.projects')}</Link></li>
-              <li><Link href="/#contact" className="hover:text-cyan-400 transition">{t('footer.nav.contact')}</Link></li>
+              
+              <li>
+                <Link href={`/${currentLocale}`} className="hover:text-cyan-400">
+                  {t('footer.nav.home')}
+                </Link>
+              </li>
+
+              <li>
+                <button onClick={() => handleClick('about')}>
+                  {t('footer.nav.about')}
+                </button>
+              </li>
+
+              <li>
+                <button onClick={() => handleClick('skills')}>
+                  {t('footer.nav.skills')}
+                </button>
+              </li>
+
+              <li>
+                <button onClick={() => handleClick('projects')}>
+                  {t('footer.nav.projects')}
+                </button>
+              </li>
+
+              <li>
+                <Link href={`/${currentLocale}/contact`}>
+                  {t('footer.nav.contact')}
+                </Link>
+              </li>
+
             </ul>
           </nav>
 
@@ -58,10 +94,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Divider */}
         <div className="h-px w-full bg-white/10"></div>
 
-        {/* Bottom */}
         <div className="text-center text-xs text-white/50">
           © {new Date().getFullYear()} Adrien Selle — {t('footer.rights')}
         </div>
@@ -70,7 +104,6 @@ export default function Footer() {
   );
 }
 
-/* Social button remains unchanged */
 function SocialLink({
   href,
   children,
