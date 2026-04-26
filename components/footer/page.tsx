@@ -97,7 +97,7 @@ export default function Footer() {
             <SocialLink href="https://github.com/BYADRIEN">
               <FaGithub />
             </SocialLink>
-            <SocialLink href="https://www.linkedin.com/in/adrien-selle/">
+            <SocialLink href="https://www.linkedin.com/in/adrien-selle-a9a181295/">
               <FaLinkedin />
             </SocialLink>
             <SocialLink href="https://www.malt.fr/profile/adrienselle">
