@@ -97,7 +97,7 @@ export default function About() {
 
         <div className="flex justify-center mt-20">
           <motion.a
-            href="#contact"
+            href="/contact"
             whileHover={{ scale: 1.08 }}
             whileTap={{ scale: 0.95 }}
             className="px-10 py-4 rounded-xl bg-sky-400 text-slate-900 font-semibold shadow-xl hover:bg-sky-300 transition"
