@@ -11,18 +11,10 @@ export default function Navbar() {
   const changeLocale = useChangeLocale();
   const currentLocale = useCurrentLocale();
 
-  // ✅ SCROLL FUNCTION (clé du fix)
- const handleScroll = (id: string) => {
-  const el = document.getElementById(id);
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth' });
-  }
-};
-
   const links = [
-    { name: t('nav.about'), id: 'about' },
-    { name: t('nav.skills'), id: 'skills' },
-    { name: t('nav.projects'), id: 'projects' },
+    { name: t('nav.about'), href: '/#about' },
+    { name: t('nav.skills'), href: '/#skills' },
+    { name: t('nav.projects'), href: '/#projects' },
   ];
 
   return (
@@ -34,24 +26,24 @@ export default function Navbar() {
           Adrien<span className="text-sky-400">Dev</span>
         </Link>
 
-        {/* Desktop nav */}
+        {/* Desktop */}
         <nav className="hidden md:flex items-center gap-8">
           <ul className="flex gap-6 text-sm text-slate-200">
             {links.map(link => (
               <li key={link.name}>
-                <button
-                  onClick={() => handleScroll(link.id)}
+                <Link
+                  href={link.href}
                   className="relative transition hover:text-sky-400 
                   after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 
                   after:bg-sky-400 after:transition-all hover:after:w-full"
                 >
                   {link.name}
-                </button>
+                </Link>
               </li>
             ))}
           </ul>
 
-          {/* Contact & Language */}
+          {/* Contact + Lang */}
           <div className="flex items-center gap-5 border-l border-white/10 pl-5">
             <a href="mailto:selleadrien@gmail.com" className="hover:text-sky-400 text-slate-300 text-lg">
               <FiMail />
@@ -102,9 +94,12 @@ export default function Navbar() {
 
             {links.map(link => (
               <li key={link.name}>
-                <button onClick={() => handleScroll(link.id)}>
+                <Link 
+                  href={link.href} 
+                  onClick={() => setIsOpen(false)}
+                >
                   {link.name}
-                </button>
+                </Link>
               </li>
             ))}
 
@@ -123,7 +118,11 @@ export default function Navbar() {
             </li>
 
             <li>
-              <Link href="/contact" onClick={() => setIsOpen(false)} className="text-sky-400 font-medium">
+              <Link 
+                href="/contact" 
+                onClick={() => setIsOpen(false)} 
+                className="text-sky-400 font-medium"
+              >
                 {t('nav.contact')}
               </Link>
             </li>
