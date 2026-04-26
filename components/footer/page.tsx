@@ -24,16 +24,16 @@ export default function Footer() {
     }
   };
 
-  // 🔥 Classe hover commune
+  // 🔥 Classe hover commune (ligne + bleu)
   const linkClass =
-    "relative transition duration-200 hover:text-cyan-400 " +
+    "relative inline-block transition duration-200 hover:text-cyan-400 " +
     "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 " +
     "after:bg-cyan-400 after:transition-all after:duration-200 hover:after:w-full";
 
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#020617] via-[#0b1f33] to-[#020617] text-white">
       
-      {/* Background glow */}
+      {/* Glow */}
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/3 w-96 h-96 bg-cyan-500/10 blur-[140px] rounded-full" />
         <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-blue-600/10 blur-[140px] rounded-full" />
