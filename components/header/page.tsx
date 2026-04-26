@@ -12,13 +12,12 @@ export default function Navbar() {
   const currentLocale = useCurrentLocale();
 
   // ✅ SCROLL FUNCTION (clé du fix)
-  const handleScroll = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsOpen(false); // ferme menu mobile
-  };
+ const handleScroll = (id: string) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
   const links = [
     { name: t('nav.about'), id: 'about' },
