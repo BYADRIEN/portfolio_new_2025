@@ -24,9 +24,20 @@ export default function Footer() {
     }
   };
 
+  const linkClass =
+    "relative transition hover:text-cyan-400 " +
+    "after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 " +
+    "after:bg-cyan-400 after:transition-all hover:after:w-full";
+
   return (
     <footer className="relative overflow-hidden bg-gradient-to-b from-[#020617] via-[#0b1f33] to-[#020617] text-white">
       
+      {/* Glow background */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-0 left-1/3 w-96 h-96 bg-cyan-500/10 blur-[140px] rounded-full" />
+        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-blue-600/10 blur-[140px] rounded-full" />
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 py-16 flex flex-col gap-12">
 
         {/* Top */}
@@ -46,33 +57,38 @@ export default function Footer() {
           {/* Navigation */}
           <nav className="flex justify-center">
             <ul className="flex flex-wrap justify-center gap-6 text-sm font-medium text-white/80">
-              
+
+              {/* Home */}
               <li>
-                <Link href={`/${currentLocale}`} className="hover:text-cyan-400">
+                <Link href={`/${currentLocale}`} className={linkClass}>
                   {t('footer.nav.home')}
                 </Link>
               </li>
 
+              {/* About */}
               <li>
-                <button onClick={() => handleClick('about')}>
+                <button onClick={() => handleClick('about')} className={linkClass}>
                   {t('footer.nav.about')}
                 </button>
               </li>
 
+              {/* Skills */}
               <li>
-                <button onClick={() => handleClick('skills')}>
+                <button onClick={() => handleClick('skills')} className={linkClass}>
                   {t('footer.nav.skills')}
                 </button>
               </li>
 
+              {/* Projects */}
               <li>
-                <button onClick={() => handleClick('projects')}>
+                <button onClick={() => handleClick('projects')} className={linkClass}>
                   {t('footer.nav.projects')}
                 </button>
               </li>
 
+              {/* Contact */}
               <li>
-                <Link href={`/${currentLocale}/contact`}>
+                <Link href={`/${currentLocale}/contact`} className="transition hover:text-cyan-400">
                   {t('footer.nav.contact')}
                 </Link>
               </li>
@@ -94,8 +110,10 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Divider */}
         <div className="h-px w-full bg-white/10"></div>
 
+        {/* Bottom */}
         <div className="text-center text-xs text-white/50">
           © {new Date().getFullYear()} Adrien Selle — {t('footer.rights')}
         </div>
