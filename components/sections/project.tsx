@@ -1,3 +1,4 @@
+```tsx
 'use client';
 
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -34,9 +35,9 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* Grid ajustée pour 3 projets */}
+        {/* Grid ajustée pour 4 projets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          
+
           <ProjectCard
             image="/images/laboh-teas.jpg"
             title={t('projects.labo.title')}
@@ -48,7 +49,7 @@ export default function Projects() {
           />
 
           <ProjectCard
-            image="/images/lucas.png" // Assure-toi de nommer ton image lucas.png dans /public/images/
+            image="/images/lucas.png"
             title={t('projects.lucas.title')}
             stack="Next.js · Tailwind · Vercel"
             description={t('projects.lucas.desc')}
@@ -68,7 +69,18 @@ export default function Projects() {
             tCode={t('projects.code')}
             tVisit={t('projects.visit')}
           />
-          
+
+          <ProjectCard
+            image="/images/philphabe.png"
+            title="Philphabe"
+            stack="Next.js · Tailwind · Resend"
+            description="Site vitrine moderne créé pour présenter l’univers de Philphabe, avec un formulaire de contact permettant aux visiteurs d’envoyer directement un message par e-mail."
+            github="https://github.com/BYADRIEN/philphabe-tiktok-site-vitrine"
+            demo="https://philphabe-tiktok-site-vitrine.vercel.app/"
+            tCode={t('projects.code')}
+            tVisit={t('projects.visit')}
+          />
+
         </div>
       </div>
     </section>
@@ -78,7 +90,7 @@ export default function Projects() {
 function ProjectCard({
   image, title, description, stack, github, demo, tCode, tVisit
 }: {
-  image: string; title: string; description: string; stack: string; 
+  image: string; title: string; description: string; stack: string;
   github: string; demo?: string; tCode: string; tVisit: string;
 }) {
   return (
@@ -108,3 +120,4 @@ function ProjectCard({
     </div>
   );
 }
+```
