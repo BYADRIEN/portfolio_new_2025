@@ -1,4 +1,3 @@
-```tsx
 'use client';
 
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -26,10 +25,14 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-24">
-          <h2 className={`text-4xl sm:text-5xl font-bold mb-6 ${jetBrains.variable} font-mono`}>
+          <h2
+            className={`text-4xl sm:text-5xl font-bold mb-6 ${jetBrains.variable} font-mono`}
+          >
             {t('projects.title')}
           </h2>
+
           <span className="block w-24 h-1 bg-cyan-400 rounded-full mx-auto mb-10"></span>
+
           <p className="text-white/75 text-lg max-w-2xl mx-auto">
             {t('projects.subtitle')}
           </p>
@@ -88,15 +91,33 @@ export default function Projects() {
 }
 
 function ProjectCard({
-  image, title, description, stack, github, demo, tCode, tVisit
+  image,
+  title,
+  description,
+  stack,
+  github,
+  demo,
+  tCode,
+  tVisit
 }: {
-  image: string; title: string; description: string; stack: string;
-  github: string; demo?: string; tCode: string; tVisit: string;
+  image: string;
+  title: string;
+  description: string;
+  stack: string;
+  github: string;
+  demo?: string;
+  tCode: string;
+  tVisit: string;
 }) {
   return (
     <div className="group relative rounded-3xl overflow-hidden bg-white/5 backdrop-blur-xl border border-white/10 transition-all duration-500 hover:-translate-y-3 hover:border-cyan-400/40 flex flex-col h-full">
       <div className="relative h-64 overflow-hidden">
-        <img src={image} alt={title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        />
+
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b1f33]/90 to-transparent" />
       </div>
 
@@ -105,13 +126,28 @@ function ProjectCard({
           <h3 className="text-2xl font-semibold mb-2">{title}</h3>
           <p className="text-cyan-400 text-sm font-medium">{stack}</p>
         </div>
-        <p className="text-white/75 leading-relaxed text-sm flex-grow">{description}</p>
+
+        <p className="text-white/75 leading-relaxed text-sm flex-grow">
+          {description}
+        </p>
+
         <div className="flex gap-6 mt-4">
-          <a href={github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-cyan-400 font-semibold hover:text-white transition-colors text-sm">
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 text-cyan-400 font-semibold hover:text-white transition-colors text-sm"
+          >
             <FaGithub /> {tCode}
           </a>
+
           {demo && (
-            <a href={demo} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-cyan-400 font-semibold hover:text-white transition-colors text-sm">
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-cyan-400 font-semibold hover:text-white transition-colors text-sm"
+            >
               <FaExternalLinkAlt /> {tVisit}
             </a>
           )}
@@ -120,4 +156,3 @@ function ProjectCard({
     </div>
   );
 }
-```
