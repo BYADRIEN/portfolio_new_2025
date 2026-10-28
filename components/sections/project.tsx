@@ -74,7 +74,7 @@ export default function Projects() {
           />
 
           <ProjectCard
-            image="/images/philphabe.png"
+            image="/images/Capture d’écran (92).png"
             title="Philphabe"
             stack="Next.js · Tailwind · Resend"
             description="Site vitrine moderne créé pour présenter l’univers de Philphabe, avec un formulaire de contact permettant aux visiteurs d’envoyer directement un message par e-mail."
