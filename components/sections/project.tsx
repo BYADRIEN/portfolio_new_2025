@@ -73,16 +73,16 @@ export default function Projects() {
             tVisit={t('projects.visit')}
           />
 
-          <ProjectCard
-            image="/images/Capture d’écran (92).png"
-            title="Philphabe"
-            stack="Next.js · Tailwind · Resend"
-            description="Site vitrine moderne créé pour présenter l’univers de Philphabe, avec un formulaire de contact permettant aux visiteurs d’envoyer directement un message par e-mail."
-            github="https://github.com/BYADRIEN/philphabe-tiktok-site-vitrine"
-            demo="https://philphabe-tiktok-site-vitrine.vercel.app/"
-            tCode={t('projects.code')}
-            tVisit={t('projects.visit')}
-          />
+         <ProjectCard
+  image="/images/Capture d’écran (92).png"
+  title={t('projects.philphabe.title')}
+  stack={t('projects.philphabe.stack')}
+  description={t('projects.philphabe.desc')}
+  github="https://github.com/BYADRIEN/philphabe-tiktok-site-vitrine"
+  demo="https://philphabe-tiktok-site-vitrine.vercel.app/"
+  tCode={t('projects.code')}
+  tVisit={t('projects.visit')}
+/>
 
         </div>
       </div>
