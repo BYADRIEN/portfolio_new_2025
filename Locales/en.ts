@@ -70,5 +70,4 @@ export default {
 'projects.philphabe.title': 'Philphabe',
 'projects.philphabe.stack': 'Next.js · Tailwind · Resend',
 'projects.philphabe.desc': 'A modern showcase website created to present Philphabe’s universe, with a contact form allowing visitors to send a message directly by email.',
-```
 } as const
