@@ -67,7 +67,6 @@ export default {
   // Project 3
   'projects.lucas.title': 'Lucas Heymans – Illustrator',
   'projects.lucas.desc': 'Minimalist and fluid artistic portfolio designed to showcase illustrations. Focus on transitions and visual lightness.',
-  ```ts
 'projects.philphabe.title': 'Philphabe',
 'projects.philphabe.stack': 'Next.js · Tailwind · Resend',
 'projects.philphabe.desc': 'A modern showcase website created to present Philphabe’s universe, with a contact form allowing visitors to send a message directly by email.',
