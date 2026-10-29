@@ -67,4 +67,7 @@ export default {
   // Projet 3
   'projects.lucas.title': 'Lucas Heymans – Dessinateur',
   'projects.lucas.desc': 'Portfolio artistique minimaliste et fluide conçu pour mettre en valeur des illustrations. Focus sur les transitions et la légèreté visuelle.',
+  'projects.philphabe.title': 'Philphabe',
+'projects.philphabe.stack': 'Next.js · Tailwind · Resend',
+'projects.philphabe.desc': 'Site vitrine moderne créé pour présenter l’univers de Philphabe, avec un formulaire de contact permettant aux visiteurs d’envoyer directement un message par e-mail.',
 } as const
